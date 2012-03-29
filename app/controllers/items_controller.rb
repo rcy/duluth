@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @inbox = Item.inbox
     @actions = Item.actions
     @waiting = Item.waiting
-
+    @maybe = Item.maybe
 
     respond_to do |format|
       format.html # index.html.erb

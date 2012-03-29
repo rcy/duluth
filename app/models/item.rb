@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   #scope :active, limit(200).reverse_order
 
   def self.inbox
-    active.where(:project => false, :action => false, :waiting => false)
+    active.where(:project => false, :action => false, :waiting => false, :maybe => false)
   end
 
   def self.projects
@@ -19,4 +19,9 @@ class Item < ActiveRecord::Base
   def self.waiting
     active.where(:waiting => true)
   end
+
+  def self.maybe
+    active.where(:maybe => true)
+  end
+
 end

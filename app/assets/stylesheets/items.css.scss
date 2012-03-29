@@ -20,25 +20,31 @@
 .inbox.list {
     background: #ffffff;
     float: left;
-    width: 25%;
+    width: 20%;
 }
 
 .action.list {
     background: #ffffbb;
     float: left;
-    width: 25%;
+    width: 20%;
 }
 
 .project.list {
     background: #ffddff;
     float: left;
-    width: 25%;
+    width: 20%;
 }
 
 .waiting.list {
     background: #ddffff;
     float: left;
-    width: 25%;
+    width: 20%;
+}
+
+.maybe.list {
+    background: #ddddff;
+    float: left;
+    width: 20%;
 }
 
 .list .archived a {
