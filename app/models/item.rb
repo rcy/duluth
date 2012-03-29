@@ -4,7 +4,7 @@ class Item < ActiveRecord::Base
   scope :active, where(:archive => false).reverse_order
 
   def self.inbox
-    active.where(:project => false)
+    active.where(:project => false, :action => false, :waiting => false)
   end
 
   def self.projects
@@ -12,10 +12,10 @@ class Item < ActiveRecord::Base
   end
 
   def self.actions
-    active.where(:project => false)
+    active.where(:action => true)
   end
 
   def self.waiting
-    active.where(:project => false)
+    active.where(:waiting => true)
   end
 end
