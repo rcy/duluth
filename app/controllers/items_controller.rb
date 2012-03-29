@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @item = Item.new
-    @items = Item.all.reverse
+    @items = Item.find_all_by_archive(false).reverse # TODO: do this right
 
     respond_to do |format|
       format.html # index.html.erb
@@ -74,7 +74,8 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+    @item.archive = true
+    @item.save!
 
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Destroyed item.' }

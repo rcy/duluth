@@ -2,10 +2,16 @@
   <tr>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @items.each do |item| %>
   <tr>
+    <td>
+      <% if item.archive %>
+      archived
+      <% end %>
+    </td>
     <td>
       <% if item.project %>
       P
