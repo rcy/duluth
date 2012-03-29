@@ -4,6 +4,11 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.find_all_by_archive(false).reverse # TODO: do this right
+    @projects = Item.projects
+    @inbox = Item.inbox
+    @actions = Item.actions
+    @waiting = Item.waiting
+
 
     respond_to do |format|
       format.html # index.html.erb

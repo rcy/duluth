@@ -2,4 +2,19 @@
 
 <%= render 'form' %>
 
-<%= render 'list' %>
+<div class="inbox list">
+  <h2>Inbox</h2>
+  <%= render 'list', :list => @inbox %>
+</div>
+<div class="project list">
+  <h2>Projects</h2>
+  <%= render 'list', :list => @projects %>
+</div>
+<div class="action list">
+  <h2>Next actions</h2>
+  <%= render 'list', :list => @actions %>
+</div>
+<div class="waiting list">
+  <h2>Waiting for</h2>
+  <%= render 'list', :list => @waiting %>
+</div>
