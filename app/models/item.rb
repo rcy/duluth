@@ -3,12 +3,12 @@ class Item < ActiveRecord::Base
 
   scope :active, where(:archive => false).reverse_order
 
-  def self.projects
-    active.where(:project => true)
-  end
-
   def self.inbox
     active.where(:project => false)
+  end
+
+  def self.projects
+    active.where(:project => true)
   end
 
   def self.actions
