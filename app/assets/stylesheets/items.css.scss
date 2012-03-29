@@ -9,6 +9,14 @@
     padding-left: 1.5em;
 }
 
+.list a {
+    text-decoration: none;
+    color: black;
+}
+.list a:visited {
+    color: black;
+}
+
 .inbox.list {
     background: #ffffff;
     float: left;
@@ -31,4 +39,9 @@
     background: #ddffff;
     float: left;
     width: 25%;
+}
+
+.list .archived a {
+    text-decoration: line-through;
+    color: gray;
 }

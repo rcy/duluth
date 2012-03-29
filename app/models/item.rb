@@ -2,6 +2,7 @@ class Item < ActiveRecord::Base
   validates :summary, :presence => true
 
   scope :active, where(:archive => false).reverse_order
+  #scope :active, limit(200).reverse_order
 
   def self.inbox
     active.where(:project => false, :action => false, :waiting => false)

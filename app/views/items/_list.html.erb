@@ -1,6 +1,8 @@
 <ul>
   <% list.each do |item| %>
-  <li><%= link_to item.summary, edit_item_path(item) %></li>
+  <li <%= "class=archived" if item.archive %>>
+    <%= link_to item.summary, edit_item_path(item) %>
+  </li>
   <% end %>
 </ul>
 <br />
