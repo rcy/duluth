@@ -10,4 +10,5 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-ui/sunny/jquery-ui-1.8.18.custom.css
 */

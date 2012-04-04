@@ -2,23 +2,35 @@
 
 <%= render 'form' %>
 
-<div class="inbox list">
-  <h2>Inbox</h2>
-  <%= render 'list', :list => @inbox %>
-</div>
-<div class="project list">
-  <h2>Projects</h2>
-  <%= render 'list', :list => @projects %>
-</div>
-<div class="action list">
-  <h2>Next actions (start here)</h2>
-  <%= render 'list', :list => @actions %>
-</div>
-<div class="waiting list">
-  <h2>Waiting for</h2>
-  <%= render 'list', :list => @waiting %>
-</div>
-<div class="maybe list">
-  <h2>Someday/Maybe</h2>
-  <%= render 'list', :list => @maybe %>
+<script>
+  $(function() { $( "#tabs" ).tabs(); });
+</script>
+
+<div class="demo">
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-inbox">Inbox</a></li>
+      <li><a href="#tabs-projects">Projects</a></li>
+      <li><a href="#tabs-actions">Next Actions</a></li>
+      <li><a href="#tabs-waiting">Waiting</a></li>
+      <li><a href="#tabs-maybe">Someday/Maybe</a></li>
+    </ul>
+    <div id="tabs-inbox">
+      <%= render 'list', :list => @inbox %>
+    </div>
+    <div id="tabs-projects">
+      <%= render 'list', :list => @projects %>
+    </div>
+    <div id="tabs-actions">
+      <%= render 'list', :list => @actions %>
+    </div>
+    <div id="tabs-waiting">
+      <%= render 'list', :list => @waiting %>
+    </div>
+    <div id="tabs-maybe">
+      <%= render 'list', :list => @maybe %>
+    </div>
+  </div>
+
 </div>
