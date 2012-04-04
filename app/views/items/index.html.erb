@@ -10,19 +10,36 @@
 
   <div id="tabs">
     <ul>
-      <li><a href="#tabs-inbox">Inbox</a></li>
-      <li><a href="#tabs-projects">Projects</a></li>
-      <li><a href="#tabs-actions">Next Actions</a></li>
-      <li><a href="#tabs-waiting">Waiting</a></li>
-      <li><a href="#tabs-maybe">Someday/Maybe</a></li>
+      <li><a href="#tabs-inbox">Inbox (1)</a></li>
+      <li><a href="#tabs-projects">Projects (3)</a></li>
+      <li><a href="#tabs-actions">Next Actions (4)</a></li>
+      <li><a href="#tabs-waiting">Waiting (2)</a></li>
+      <li><a href="#tabs-remember">* Remember (123)</a></li>
+      <li><a href="#tabs-calendar">* Calendar</a></li>
+      <li><a href="#tabs-maybe">Someday/Maybe (9)</a></li>
     </ul>
     <div id="tabs-inbox">
+      <div class="instructions ui-corner-all">
+        <p>Items in this list are unprocessed.</p>
+        <p>If you create an item without specifying what it is
+        (project, next action, etc) it will wind up here.</p>
+        <p>The next step is to move each of them to the appropriate
+        tab.</p>
+        <p>This list should be processed regularily.</p>
+      </div>
+
       <%= render 'list', :list => @inbox %>
     </div>
     <div id="tabs-projects">
+      <div class="instructions">
+        <p>A Project describes an outcome that requires more than one
+        step to completion.</p>
+        <p>Each project should have one Next Action associated with it.</p>
+      </div>
       <%= render 'list', :list => @projects %>
     </div>
     <div id="tabs-actions">
+
       <%= render 'list', :list => @actions %>
     </div>
     <div id="tabs-waiting">
@@ -30,6 +47,8 @@
     </div>
     <div id="tabs-maybe">
       <%= render 'list', :list => @maybe %>
+    </div>
+    <div id="tabs-remember">
     </div>
   </div>
 
