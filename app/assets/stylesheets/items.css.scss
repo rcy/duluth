@@ -2,49 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.list h2 {
-    padding-left: 5px;
-}
-.list ul { /* hide/style the li dot */
-    padding-left: 1.5em;
-}
-
 .list a {
     text-decoration: none;
     color: black;
 }
 .list a:visited {
     color: black;
-}
-
-.inbox.list {
-    background: #ffffff;
-    float: left;
-    width: 20%;
-}
-
-.action.list {
-    background: #ffffbb;
-    float: left;
-    width: 20%;
-}
-
-.project.list {
-    background: #ffddff;
-    float: left;
-    width: 20%;
-}
-
-.waiting.list {
-    background: #ddffff;
-    float: left;
-    width: 20%;
-}
-
-.maybe.list {
-    background: #ddddff;
-    float: left;
-    width: 20%;
 }
 
 .list .archived a {
