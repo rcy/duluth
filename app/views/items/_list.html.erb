@@ -1,7 +1,16 @@
 <ul class="itemlist">
   <% list.each do |item| %>
-  <li <%= "class=archived" if item.archive %>>
-    <div class="item"><%= link_to item.summary, edit_item_path(item) %></div>
+  <li class="item">
+    <div class="summary"><%= link_to item.summary, edit_item_path(item) %></div>
+    <div class="detail" style="display: none">
+      <div class="tools">
+        <div>[[[ move to projects, next action, waiting, remember, calendar, someday ]]]</div>
+        <div>last activity: 2 days ago (created next action, abc)</div>
+      </div>
+      <div class="body">
+        <%= item.body %>
+      </div>
+    </div>
   </li>
   <% end %>
 </ul>

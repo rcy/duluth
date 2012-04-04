@@ -10,10 +10,10 @@
     margin: 0;
 }
 
-ul.itemlist {
+li.item div.summary {
     font-size: 150%;
 }
 
-ul .item {
-    font-size: 150%;
+li.item div.detail {
+    padding: .5em;
 }
