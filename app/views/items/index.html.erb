@@ -9,13 +9,13 @@
 
   <div id="tabs">
     <ul>
-      <li><a href="#tabs-inbox">Inbox (1)</a></li>
-      <li><a href="#tabs-projects">Projects (3)</a></li>
-      <li><a href="#tabs-actions">Next Actions (4)</a></li>
-      <li><a href="#tabs-waiting">Waiting (2)</a></li>
-      <li><a href="#tabs-remember">* Remember (123)</a></li>
+      <li><a href="#tabs-inbox">Inbox (<%= @inbox.length %>)</a></li>
+      <li><a href="#tabs-projects">Projects (<%= @projects.length %>)</a></li>
+      <li><a href="#tabs-actions">Next Actions (<%= @actions.length %>)</a></li>
+      <li><a href="#tabs-waiting">Waiting (<%= @waiting.length %>)</a></li>
+      <li><a href="#tabs-remember">* Remember</a></li>
       <li><a href="#tabs-calendar">* Calendar</a></li>
-      <li><a href="#tabs-maybe">Someday/Maybe (9)</a></li>
+      <li><a href="#tabs-maybe">Someday/Maybe (<%= @maybe.length %>)</a></li>
     </ul>
     <div id="tabs-inbox">
       <div class="instructions ui-corner-all">
@@ -30,7 +30,7 @@
       <%= render 'list', :list => @inbox %>
     </div>
     <div id="tabs-projects">
-      <div class="instructions">
+      <div class="instructions ui-corner-all">
         <p>A Project describes an outcome that requires more than one
         step to completion.</p>
         <p>Each project should have one Next Action associated with it.</p>
@@ -48,6 +48,11 @@
       <%= render 'list', :list => @maybe %>
     </div>
     <div id="tabs-remember">
+    </div>
+    <div id="tabs-calendar">
+      <%= link_to "google calendar", "http://google.com/calendar" %>
+    </div>
+
     </div>
   </div>
 
