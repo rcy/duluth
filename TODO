@@ -1,0 +1,5 @@
+-*- outline -*-
+
+* user logins
+* implement calendar tab
+* fix database, add item.type = {inbox, action, project, etc}
