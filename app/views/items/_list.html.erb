@@ -1,11 +1,18 @@
 <ul class="itemlist">
   <% list.each do |item| %>
-  <li class="item">
+  <li class="item" data-id="<%= item.id %>">
     <div class="summary"><%= link_to item.summary, edit_item_path(item) %></div>
     <div class="detail" style="display: none">
       <div class="tools">
-        <div>[[[ move to projects, next action, waiting, remember, calendar, someday ]]]</div>
-        <div>last activity: 2 days ago (created next action, abc)</div>
+        <div>
+          file under:
+          <%= link_to "projects" %>,
+          <%= link_to "next action" %>,
+          <%= link_to "waiting" %>,
+          <%= link_to "remember" %>,
+          <%= link_to "calendar" %>,
+          <%= link_to "someday" %>
+        </div>
       </div>
       <div class="body">
         <%= item.body %>

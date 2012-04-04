@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require_tree .
+
+$("li.item div.summary").live("click", function (e) {
+  e.preventDefault();
+  $(this).parent().find('.detail').toggle();
+});
