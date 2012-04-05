@@ -11,18 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120329215450) do
+ActiveRecord::Schema.define(:version => 20120404232545) do
 
   create_table "items", :force => true do |t|
     t.string   "summary"
     t.text     "body"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.boolean  "project",    :default => false
     t.boolean  "archive",    :default => false
     t.boolean  "action",     :default => false
     t.boolean  "waiting",    :default => false
     t.boolean  "maybe",      :default => false
+    t.string   "kind",       :default => "inbox"
   end
 
 end
