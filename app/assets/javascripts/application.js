@@ -21,7 +21,7 @@ $("li.item div.summary").live("click", function (e) {
 });
 
 
-$("div.action a").live("click", function (e) {
+$("div.move_to a").live("click", function (e) {
   e.preventDefault();
   var move_to = $(this).data('move_to');
   var item = $(this).parents('li.item');
@@ -30,6 +30,22 @@ $("div.action a").live("click", function (e) {
     type: "POST",
     url: '/items/'+item_id+'.json',
     data: { _method: "PUT", item: { kind: move_to } },
+    dataType: 'json',
+    success: function(msg) {
+      $(item).fadeOut();
+    }
+  });
+});
+
+$("div.mark_as a").live("click", function (e) {
+  e.preventDefault();
+  var mark_as = $(this).data('mark_as');
+  var item = $(this).parents('li.item');
+  var item_id = $(this).parents('li.item').data('id');
+  $.ajax({
+    type: "POST",
+    url: '/items/'+item_id+'.json',
+    data: { _method: "PUT", item: { archive: true } },
     dataType: 'json',
     success: function(msg) {
       $(item).fadeOut();
