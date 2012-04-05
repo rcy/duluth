@@ -19,3 +19,20 @@ $("li.item div.summary").live("click", function (e) {
   e.preventDefault();
   $(this).parent().find('.detail').toggle();
 });
+
+
+$("div.action a").live("click", function (e) {
+  e.preventDefault();
+  var move_to = $(this).data('move_to');
+  var item = $(this).parents('li.item');
+  var item_id = $(this).parents('li.item').data('id');
+  $.ajax({
+    type: "POST",
+    url: '/items/'+item_id+'.json',
+    data: { _method: "PUT", item: { kind: move_to } },
+    dataType: 'json',
+    success: function(msg) {
+      $(item).fadeOut();
+    }
+  });
+});

@@ -13,8 +13,8 @@
       <li><a href="#tabs-projects">Projects (<%= @projects.length %>)</a></li>
       <li><a href="#tabs-actions">Next Actions (<%= @actions.length %>)</a></li>
       <li><a href="#tabs-waiting">Waiting (<%= @waiting.length %>)</a></li>
-      <li><a href="#tabs-remember">* Remember</a></li>
-      <li><a href="#tabs-calendar">* Calendar</a></li>
+      <li><a href="#tabs-trivia">Trivia (<%= @trivia.length %>)</a></li>
+      <li><a href="#tabs-calendar">Calendar (<%= @calendar.length %>)</a></li>
       <li><a href="#tabs-maybe">Someday/Maybe (<%= @maybe.length %>)</a></li>
     </ul>
     <div id="tabs-inbox">
@@ -50,9 +50,11 @@
     <div id="tabs-maybe">
       <%= render 'list', :list => @maybe %>
     </div>
-    <div id="tabs-remember">
+    <div id="tabs-trivia">
+      <%= render 'list', :list => @trivia %>
     </div>
     <div id="tabs-calendar">
+      <%= render 'list', :list => @calendar %>
       <%= link_to "google calendar", "http://google.com/calendar" %>
     </div>
 

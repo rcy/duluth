@@ -9,6 +9,8 @@ class ItemsController < ApplicationController
     @actions = Item.actions
     @waiting = Item.waiting
     @maybe = Item.maybe
+    @trivia = Item.trivia
+    @calendar = Item.calendar
 
     respond_to do |format|
       format.html # index.html.erb

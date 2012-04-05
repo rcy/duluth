@@ -24,4 +24,12 @@ class Item < ActiveRecord::Base
     active.where(:kind => 'maybe')
   end
 
+  def self.trivia
+    active.where(:kind => 'trivia')
+  end
+
+  def self.calendar
+    active.where(:kind => 'calendar')
+  end
+
 end
