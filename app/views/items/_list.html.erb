@@ -10,17 +10,17 @@
         <%= link_to "waiting", "#", :'data-move_to' => "waiting", :title => "something I am waiting for, currently out of my control" %>,
         <%= link_to "trivia", "#", :'data-move_to' => "trivia", :title => "some fact, snippet, or idea that I want to remember.  It is not an action or project" %>,
         <%= link_to "calendar", "#", :'data-move_to' => "calendar", :title => "time sensitive, schedule this in the calendar" %>,
-        <%= link_to "someday", "#", :'data-move_to' => "someday", :title => "a project I might want to take on in the future, but not right now" %>
+        <%= link_to "maybe", "#", :'data-move_to' => "maybe", :title => "a project I might want to take on in the future, but not right now" %>
       </div>
       <div class="mark_as">
         Mark as:
         <%= link_to "done", "#", :'data-mark_as' => "done", :title => "this action or project is completed" %>
       </div>
+      <div class="body">
+        <pre><%= item.body %></pre>
+      </div>
       <div class="edit">
         <%= link_to "edit", edit_item_path(item) %>
-      </div>
-      <div class="body">
-        <%= item.body %>
       </div>
     </div>
   </li>
