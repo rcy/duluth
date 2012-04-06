@@ -1,10 +1,10 @@
 class Item < ActiveRecord::Base
   validates :summary, :presence => true
 
-  scope :active, where(:archive => false)
+  scope :active, where(:archive => false).reverse_order
 
   def self.inbox
-    active.where(:kind => 'inbox').reverse_order
+    active.where(:kind => 'inbox')
   end
 
   def self.projects
