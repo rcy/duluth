@@ -17,7 +17,9 @@
         <%= link_to "done", "#", :'data-mark_as' => "done", :title => "this action or project is completed" %>
       </div>
       <div class="body">
+        <% if item.body.present? %>
         <pre><%= item.body %></pre>
+        <% end %>
       </div>
       <div class="edit">
         <%= link_to "edit", edit_item_path(item) %>
