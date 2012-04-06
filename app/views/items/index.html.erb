@@ -41,7 +41,6 @@
       <%= render 'list', :list => @projects %>
     </div>
     <div id="tabs-actions">
-
       <%= render 'list', :list => @actions %>
     </div>
     <div id="tabs-waiting">
@@ -56,6 +55,9 @@
     <div id="tabs-calendar">
       <%= render 'list', :list => @calendar %>
       <%= link_to "google calendar", "http://google.com/calendar" %>
+      <pre>
+        <%= `cal -y` %>
+      </pre>
     </div>
 
     </div>
