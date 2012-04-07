@@ -53,11 +53,9 @@
       <%= render 'list', :list => @trivia %>
     </div>
     <div id="tabs-calendar">
-      <%= render 'list', :list => @calendar %>
+      <pre><%= `cal -h3` %></pre>
       <%= link_to "google calendar", "http://google.com/calendar" %>
-      <pre>
-        <%= `cal -hy` %>
-      </pre>
+      <%= render 'list', :list => @calendar %>
     </div>
 
     </div>
