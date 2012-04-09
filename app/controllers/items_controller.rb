@@ -6,11 +6,26 @@ class ItemsController < ApplicationController
     @items = Item.find_all_by_archive(false).reverse # TODO: do this right
     @projects = Item.projects
     @inbox = Item.inbox
-    @actions = Item.actions
     @waiting = Item.waiting
     @maybe = Item.maybe
     @trivia = Item.trivia
     @calendar = Item.calendar
+
+    # Split actions into contexts.  A context is marked by @context in the summary.
+    @actions = {}
+    Item.actions.each do |action|
+      contexts = action.summary.scan(/@\w+/)
+      action.summary = action.summary.gsub(/@\w+/,'')
+      if contexts.blank?
+        @actions['No Context'] ||= []
+        @actions['No Context'] << action
+      else
+        contexts.each do |context|
+          @actions[context] ||= []
+          @actions[context] << action
+        end
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
