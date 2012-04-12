@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412031924) do
+ActiveRecord::Schema.define(:version => 20120412032341) do
 
   create_table "items", :force => true do |t|
     t.string   "summary"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120412031924) do
     t.boolean  "waiting",    :default => false
     t.boolean  "maybe",      :default => false
     t.string   "kind",       :default => "inbox"
+    t.integer  "user_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
