@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div class="login-status">
+    <% if user_signed_in? %>
+    Logged in as <%= current_user.nick %>
+    <% end %>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>
