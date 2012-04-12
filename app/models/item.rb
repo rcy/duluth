@@ -1,34 +1,39 @@
 class Item < ActiveRecord::Base
   validates :summary, :presence => true
 
-  scope :active, where(:archive => false).reverse_order
+  belongs_to :user
+  validates_presence_of :user
 
-  def self.inbox
-    active.where(:kind => 'inbox')
+  def self.active(user)
+    where(:user_id => user, :archive => false).reverse_order
   end
 
-  def self.projects
-    active.where(:kind => 'project')
+  def self.inbox(user)
+    active(user).where(:kind => 'inbox')
   end
 
-  def self.actions
-    active.where(:kind => 'action')
+  def self.projects(user)
+    active(user).where(:kind => 'project')
   end
 
-  def self.waiting
-    active.where(:kind => 'waiting')
+  def self.actions(user)
+    active(user).where(:kind => 'action')
   end
 
-  def self.maybe
-    active.where(:kind => 'maybe')
+  def self.waiting(user)
+    active(user).where(:kind => 'waiting')
   end
 
-  def self.trivia
-    active.where(:kind => 'trivia')
+  def self.maybe(user)
+    active(user).where(:kind => 'maybe')
   end
 
-  def self.calendar
-    active.where(:kind => 'calendar')
+  def self.trivia(user)
+    active(user).where(:kind => 'trivia')
+  end
+
+  def self.calendar(user)
+    active(user).where(:kind => 'calendar')
   end
 
 end

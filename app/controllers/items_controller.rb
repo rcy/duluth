@@ -6,16 +6,16 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
     @items = Item.find_all_by_archive(false).reverse # TODO: do this right
-    @projects = Item.projects
-    @inbox = Item.inbox
-    @waiting = Item.waiting
-    @maybe = Item.maybe
-    @trivia = Item.trivia
-    @calendar = Item.calendar
+    @projects = Item.projects(current_user)
+    @inbox = Item.inbox(current_user)
+    @waiting = Item.waiting(current_user)
+    @maybe = Item.maybe(current_user)
+    @trivia = Item.trivia(current_user)
+    @calendar = Item.calendar(current_user)
 
     # Split actions into contexts.  A context is marked by @context in the summary.
     @actions = {}
-    Item.actions.each do |action|
+    Item.actions(current_user).each do |action|
       contexts = action.summary.scan(/@\w+/)
       action.summary = action.summary.gsub(/@\w+/,'')
       if contexts.blank?
@@ -66,6 +66,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(params[:item])
+    @item.user = current_user
 
     respond_to do |format|
       if @item.save
