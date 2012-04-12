@@ -16,9 +16,10 @@
       <li><a href="#tabs-projects">Projects (<%= @projects.length %>)</a></li>
       <li><a href="#tabs-actions">Next Actions (<%= @actions.values.flatten.length %>)</a></li>
       <li><a href="#tabs-waiting">Waiting (<%= @waiting.length %>)</a></li>
-      <li><a href="#tabs-trivia">Scrapbook (<%= @trivia.length %>)</a></li>
       <li><a href="#tabs-calendar">Calendar (<%= @calendar.length %>)</a></li>
       <li><a href="#tabs-maybe">Someday/Maybe (<%= @maybe.length %>)</a></li>
+      <li><a href="#tabs-trivia">Scrapbook (<%= @trivia.length %>)</a></li>
+      <li><a href="#tabs-archive">Archive (<%= @archive.length %>)</a></li>
     </ul>
     <div id="tabs-inbox">
       <div class="instructions ui-corner-all">
@@ -68,8 +69,9 @@
       <%= link_to "google calendar", "http://google.com/calendar" %>
       <%= render 'list', :list => @calendar %>
     </div>
-
+    <div id="tabs-archive">
+      <%= render 'list', :list => @archive %>
     </div>
-  </div>
 
+  </div>
 </div>

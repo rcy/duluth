@@ -10,12 +10,13 @@ class ItemsController < ApplicationController
     @maybe = Item.maybe
     @trivia = Item.trivia
     @calendar = Item.calendar
+    @archive = Item.archive
 
     # Split actions into contexts.  A context is marked by @context in the summary.
     @actions = {}
     Item.actions.each do |action|
       contexts = action.summary.scan(/@\w+/)
-      action.summary = action.summary.gsub(/@\w+/,'')
+      #action.summary = action.summary.gsub(/@\w+/,'')
       if contexts.blank?
         @actions['No Context'] ||= []
         @actions['No Context'] << action

@@ -3,6 +3,10 @@ class Item < ActiveRecord::Base
 
   scope :active, where(:archive => false).reverse_order
 
+  def self.archive
+    where(:archive => true).order(:updated_at).reverse_order
+  end
+
   def self.inbox
     active.where(:kind => 'inbox')
   end
