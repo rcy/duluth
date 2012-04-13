@@ -2,16 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.instructions {
-    border: 1px solid black;
-    padding: .5em;
-}
-.instructions p {
-    margin: 0;
+div.itemlist .kind {
 }
 
-li.item div.summary {
-    /* font-size: 100%; */
+div.itemlist .summary {
+    font-size: 120%;
+}
+
+div.item {
+    border: 3px solid white;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 2px;
+}
+
+div.item:hover {
+    border: 3px solid black;
 }
 
 .item.waiting { background: #fcc; }
@@ -19,7 +25,3 @@ li.item div.summary {
 .item.project { background: #cfc; }
 .item.maybe { background: #ffc; }
 .item.inbox { background: #fbb; }
-
-li.item div.detail {
-    padding: .5em;
-}

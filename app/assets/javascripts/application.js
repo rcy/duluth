@@ -19,6 +19,10 @@ $("tr.item div.summary").live("click", function (e) {
   e.preventDefault();
   $(this).parent().find('.detail').toggle();
 });
+$("tr.item span.kind").live("click", function (e) {
+  e.preventDefault();
+  $(this).parent().find('.move_to').toggle();
+});
 
 
 $("div.move_to a").live("click", function (e) {
