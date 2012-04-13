@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @item = Item.new
-    @items = Item.find_all_by_archive(false).reverse # TODO: do this right
+    @items = Item.active(current_user)
 
     @projects = Item.projects(current_user)
     @inbox = Item.inbox(current_user)
