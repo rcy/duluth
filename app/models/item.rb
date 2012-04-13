@@ -4,12 +4,19 @@ class Item < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :user
 
+  after_create :set_sort
+
+  def set_sort
+    self.sort = self.id
+    save!
+  end
+
   def self.archive(user)
-    where(:user_id => user, :archive => true).order(:updated_at).reverse_order
+    where(:user_id => user, :archive => true).order(:sort).reverse_order
   end
 
   def self.active(user)
-    where(:user_id => user, :archive => false).reverse_order
+    where(:user_id => user, :archive => false).order(:sort).reverse_order
   end
 
   def self.inbox(user)
