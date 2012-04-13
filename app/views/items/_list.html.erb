@@ -1,15 +1,5 @@
 <div class="itemlist">
   <% list.each do |item| %>
-  <div class="item <%= item.kind %>">
-
-    <span class="kind">
-      <%= select_tag item.kind, options_for_select(["inbox", "project", "action", "maybe", "trivia", "calendar"], item.kind) %>
-    </span>
-
-    <span class="summary">
-      <%= item.summary %>
-    </span>
-
-  </div>
+  <%= render 'item', item: item %>
   <% end %>
 </div>

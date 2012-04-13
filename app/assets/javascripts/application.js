@@ -15,15 +15,22 @@
 //= require jquery-ui
 //= require_tree .
 
-$("tr.item div.summary").live("click", function (e) {
+$(".item .kind select").live("change", function(e) {
   e.preventDefault();
-  $(this).parent().find('.detail').toggle();
-});
-$("tr.item span.kind").live("click", function (e) {
-  e.preventDefault();
-  $(this).parent().find('.move_to').toggle();
-});
+  var kind = $(this).find('option:selected').val();
+  var item = $(this).parents('.item')
+  var item_id = $(item).data('id');
 
+  $.ajax({
+    type: "POST",
+    url: '/items/'+item_id,
+    data: { _method: "PUT", item: { kind: kind } },
+    success: function(new_item_html) {
+      $(item).replaceWith(new_item_html);
+    }
+  });
+
+});
 
 $("div.move_to a").live("click", function (e) {
   e.preventDefault();

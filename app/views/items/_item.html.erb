@@ -1,0 +1,11 @@
+<div class="item <%= item.kind %>" data-id="<%= item.id %>">
+
+  <span class="kind">
+    <%= select_tag item.kind, options_for_select(["inbox", "project", "action", "maybe", "trivia", "calendar"], item.kind) %>
+  </span>
+
+  <span class="summary">
+    <%= item.summary %>
+  </span>
+
+</div>

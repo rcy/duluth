@@ -79,7 +79,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to :items, notice: 'Item was successfully updated.' }
+        format.html { render partial: 'item', locals: { item: @item } }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
