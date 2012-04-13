@@ -1,77 +1,14 @@
 <p id="notice"><%= notice %></p>
 <%= render 'form' %>
 
-<script>
-  $(function() {
-    $("#accordion").accordion();
-    $("#tabs").tabs();
-  });
-</script>
+Show:
+<a href="#">ALL</a>
+<a href="#">NONE</a>
+<a href="#">inbox</a>
+<a href="#">projects</a>
+<a href="#">actions</a>
+<a href="#">someday/maybe</a>
+<a href="#">trivia</a>
+<a href="#">calendar</a>
 
-<div class="demo">
-
-  <div id="tabs">
-    <ul>
-      <li><a href="#tabs-inbox">Inbox (<%= @inbox.length %>)</a></li>
-      <li><a href="#tabs-projects">Projects (<%= @projects.length %>)</a></li>
-      <li><a href="#tabs-actions">Next Actions (<%= @actions.values.flatten.length %>)</a></li>
-      <li><a href="#tabs-waiting">Waiting (<%= @waiting.length %>)</a></li>
-      <li><a href="#tabs-calendar">Calendar (<%= @calendar.length %>)</a></li>
-      <li><a href="#tabs-maybe">Someday/Maybe (<%= @maybe.length %>)</a></li>
-      <li><a href="#tabs-trivia">Scrapbook (<%= @trivia.length %>)</a></li>
-      <li><a href="#tabs-archive">Archive (<%= @archive.length %>)</a></li>
-    </ul>
-    <div id="tabs-inbox">
-      <div class="instructions ui-corner-all">
-        <p>The Inbox is the landing place for new items.</p>
-        <p>If your head is full of things you need to remember to do
-          or take care of, perhaps a <a href="#">mental sweep</a> is
-          in order.</p>
-        <p>Decisions need to be made on the items here about where
-          they should go.</p>
-        <p>This list should be reviewed regularily.  Nothing should
-          linger in the Inbox for too long.</p>
-      </div>
-
-      <%= render 'list', :list => @inbox %>
-    </div>
-    <div id="tabs-projects">
-      <div class="instructions ui-corner-all">
-        <p>A Project describes an outcome that requires more than one
-        step to complete.</p>
-        <p>Each project should have one Next Action associated with it.</p>
-        <p>The project list should be reviewed weekly.</p>
-      </div>
-      <%= render 'list', :list => @projects %>
-    </div>
-    <div id="tabs-actions">
-      <div id="accordion">
-        <% @actions.keys.sort.each do |context| %>
-        <% actions = @actions[context] %>
-        <h3><a href="#"><%= "#{context} (#{actions.length})" %></a></h3>
-        <div>
-          <%= render 'list', :list => actions %>
-        </div>
-        <% end %>
-      </div>
-    </div>
-    <div id="tabs-waiting">
-      <%= render 'list', :list => @waiting %>
-    </div>
-    <div id="tabs-maybe">
-      <%= render 'list', :list => @maybe %>
-    </div>
-    <div id="tabs-trivia">
-      <%= render 'list', :list => @trivia %>
-    </div>
-    <div id="tabs-calendar">
-      <pre><%= `cal -h3` %></pre>
-      <%= link_to "google calendar", "http://google.com/calendar" %>
-      <%= render 'list', :list => @calendar %>
-    </div>
-    <div id="tabs-archive">
-      <%= render 'list', :list => @archive %>
-    </div>
-
-  </div>
-</div>
+<%= render 'list', :list => @items %>

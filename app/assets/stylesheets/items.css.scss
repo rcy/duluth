@@ -11,8 +11,14 @@
 }
 
 li.item div.summary {
-    font-size: 150%;
+    /* font-size: 100%; */
 }
+
+.item.waiting { background: #fcc; }
+.item.action { background: #ccf; }
+.item.project { background: #cfc; }
+.item.maybe { background: #ffc; }
+.item.inbox { background: #fbb; }
 
 li.item div.detail {
     padding: .5em;

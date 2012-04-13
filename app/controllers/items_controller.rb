@@ -16,20 +16,11 @@ class ItemsController < ApplicationController
     @archive = Item.archive(current_user)
 
     # Split actions into contexts.  A context is marked by @context in the summary.
-    @actions = {}
-    Item.actions(current_user).each do |action|
-      contexts = action.summary.scan(/@\w+/)
-      #action.summary = action.summary.gsub(/@\w+/,'')
-      if contexts.blank?
-        @actions['No Context'] ||= []
-        @actions['No Context'] << action
-      else
-        contexts.each do |context|
-          @actions[context] ||= []
-          @actions[context] << action
-        end
-      end
-    end
+    @actions = Item.actions(current_user)
+    # Item.actions(current_user).each do |action|
+    #   contexts = action.summary.scan(/@\w+/)
+    #   @actions << [action, contexts]
+    # end
 
     respond_to do |format|
       format.html # index.html.erb
