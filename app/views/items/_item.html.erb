@@ -1,7 +1,7 @@
-<div class="item <%= item.kind %>" data-id="<%= item.id %>">
+<div class="item <%= item.kind %> <%= item.archive ? 'archive' : '' %>" data-id="<%= item.id %>">
 
   <span class="kind">
-    <%= select_tag item.kind, options_for_select(["inbox", "project", "action", "maybe", "trivia", "calendar"], item.kind) %>
+    <%= select_tag item.kind, grouped_options_for_select([["Move to:", [["Inbox", "inbox"], ["Project", "project"], ["Next Action", "action"], ["Someday/Maybe", "maybe"], ["Note", "trivia"], ["Calendar", "calendar"]]], ["Other", [["Archive", "do:archive"], ["Unarchive", "do:unarchive"]]]], item.kind) %>
   </span>
 
   <span class="summary">

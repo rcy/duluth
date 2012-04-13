@@ -21,10 +21,28 @@ $(".item .kind select").live("change", function(e) {
   var item = $(this).parents('.item')
   var item_id = $(item).data('id');
 
+  var data;
+
+  var complex = kind.split(':');
+  if (complex[0] === 'do') {
+    if (complex[1] === 'archive') {
+      data = {archive: true};
+    } else if (complex[1] === 'unarchive') {
+      data = {archive: false};
+    } else {
+      // archive and unarchive are the only options
+      alert("bad things");
+    }
+  } else {
+    data = {kind: kind}
+  }
+
+  console.log(data);
+
   $.ajax({
     type: "POST",
     url: '/items/'+item_id,
-    data: { _method: "PUT", item: { kind: kind } },
+    data: { _method: "PUT", item: data },
     success: function(new_item_html) {
       $(item).replaceWith(new_item_html);
     }
