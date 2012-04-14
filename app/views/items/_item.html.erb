@@ -4,7 +4,7 @@
   </span>
 
   <span class="kind">
-    <%= select_tag item.kind, grouped_options_for_select([["Move to:", [["Inbox", "inbox"], ["Project", "project"], ["Next Action", "action"], ["Someday/Maybe", "maybe"], ["Note", "trivia"], ["Calendar", "calendar"]]], ["Other", [["Archive", "do:archive"], ["Unarchive", "do:unarchive"]]]], item.kind) %>
+    <%= select_tag item.kind, item_options_helper(item) %>
   </span>
 
   <span class="summary">

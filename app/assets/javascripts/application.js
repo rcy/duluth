@@ -52,6 +52,7 @@ $(function() {
   });
 
   $('.focus a').click(function(e) {
+    e.preventDefault();
     var kind = $(this).data('focus');
     if (kind === 'all') {
       $('.item').show();
