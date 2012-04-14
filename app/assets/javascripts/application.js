@@ -51,4 +51,14 @@ $(function() {
 
   });
 
+  $('.focus a').click(function(e) {
+    var kind = $(this).data('focus');
+    if (kind === 'all') {
+      $('.item').show();
+    } else {
+      $('.item').hide();
+      $('.item.'+kind).show();
+    }
+  });
+
 });
