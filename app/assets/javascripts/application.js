@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require fancybox
 //= require_tree .
 
 $(function() {
+  $("span.summary").live('click', function(e) {
+    $.fancybox({ content: "<h1>"+$(this).html()+"</h1>",
+                 overlayOpacity: '.8',
+                 overlayColor: '#000',
+               });
+  });
+
   $("input.focus").focus();
 
   $(".item .kind select").live("change", function(e) {
