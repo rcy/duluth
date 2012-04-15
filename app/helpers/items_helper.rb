@@ -10,6 +10,7 @@ module ItemsHelper
                 ["Project", "project"],
                 ["Next Action", "action"],
                 ["Someday/Maybe", "maybe"],
+                ["Waiting For", "waiting"],
                 ["Note", "trivia"],
                 ["Calendar", "calendar"]]],
               ["Other",
