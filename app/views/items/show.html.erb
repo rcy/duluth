@@ -1,2 +1,11 @@
-<h1><%= @item.summary %></h1>
-<pre><%= @item.body || 'no body' %></pre>
+<div class="item <%= @item.kind %>">
+  <h1><%= @item.summary %></h1>
+  <div>
+    Created <%= time_ago_in_words(@item.created_at) %> ago
+  </div>
+  <div>
+    Updated <%= time_ago_in_words(@item.updated_at) %> ago
+  </div>
+
+  <pre><%= @item.body || 'no body' %></pre>
+</div>
