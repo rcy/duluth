@@ -1,5 +1,1 @@
--*- outline -*-
-
-* user logins
-* implement calendar tab
-* fix database, add item.type = {inbox, action, project, etc}
+See https://www.pivotaltracker.com/projects/526935
