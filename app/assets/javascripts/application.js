@@ -17,11 +17,13 @@
 //= require_tree .
 
 $(function() {
-  $("span.summary").live('click', function(e) {
-    $.fancybox({ content: "<h1>"+$(this).html()+"</h1>",
-                 overlayOpacity: '.95', overlayColor: '#000',
-                 centerOnScroll: true
-               });
+  $("span.summary").click(function(e) {
+    var id = $(this).parent().data('id')
+    $.fancybox({
+      href: "items/"+id,
+      overlayOpacity: '.95', overlayColor: '#000',
+      centerOnScroll: true,
+    });
   });
 
   $("input.focus").focus();

@@ -1,15 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Summary:</b>
-  <%= @item.summary %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @item.body %>
-</p>
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<h1><%= @item.summary %></h1>
+<pre><%= @item.body || 'no body' %></pre>
