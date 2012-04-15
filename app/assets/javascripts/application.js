@@ -19,8 +19,8 @@
 $(function() {
   $("span.summary").live('click', function(e) {
     $.fancybox({ content: "<h1>"+$(this).html()+"</h1>",
-                 overlayOpacity: '.8',
-                 overlayColor: '#000',
+                 overlayOpacity: '.95', overlayColor: '#000',
+                 centerOnScroll: true
                });
   });
 
