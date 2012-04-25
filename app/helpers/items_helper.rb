@@ -8,7 +8,7 @@ module ItemsHelper
       opts = [["Move to:",
                [["Inbox", "inbox"],
                 ["Project", "project"],
-                ["Next Action", "action"],
+                ["Action", "action"],
                 ["Someday/Maybe", "maybe"],
                 ["Waiting For", "waiting"],
                 ["Note", "trivia"],
