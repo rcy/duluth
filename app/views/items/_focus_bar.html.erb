@@ -1,11 +1,11 @@
 <div class="focus">
   Show:
-  <%= link_to "ALL", items_path %>
-  | <%= link_to "inbox", items_path(:kind => :inbox) %> (<%= @count[:inbox] %>)
-  | <%= link_to "projects", items_path(:kind => :project) %> (<%= @count[:project] %>)
-  | <%= link_to "actions", items_path(:kind => :action) %> (<%= @count[:action] %>)
-  | <%= link_to "waiting", items_path(:kind => :waiting) %> (<%= @count[:waiting] %>)
-  | <%= link_to "maybe", items_path(:kind => :maybe) %> (<%= @count[:maybe] %>)
-  | <%= link_to "notes", items_path(:kind => :trivia) %> (<%= @count[:trivia] %>)
-  | <%= link_to "calendar", items_path(:kind => :calendar) %> (<%= @count[:calendar] %>)
+  <%= link_to "ALL", kind_path(:all) %>
+  | <%= link_to "inbox", kind_path(:inbox) %> (<%= @count[:inbox] %>)
+  | <%= link_to "projects", kind_path(:project) %> (<%= @count[:project] %>)
+  | <%= link_to "actions", kind_path(:action) %> (<%= @count[:action] %>)
+  | <%= link_to "waiting", kind_path(:waiting) %> (<%= @count[:waiting] %>)
+  | <%= link_to "maybe", kind_path(:maybe) %> (<%= @count[:maybe] %>)
+  | <%= link_to "notes", kind_path(:trivia) %> (<%= @count[:trivia] %>)
+  | <%= link_to "calendar", kind_path(:calendar) %> (<%= @count[:calendar] %>)
 </div>

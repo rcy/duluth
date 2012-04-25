@@ -5,6 +5,8 @@ Duluth::Application.routes.draw do
 
   resources :items
 
+  match ':kind(/:context)' => 'items#index', :as => :kind
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

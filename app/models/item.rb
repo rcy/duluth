@@ -11,6 +11,14 @@ class Item < ActiveRecord::Base
     save!
   end
 
+  def self.contexts(user)
+    contexts = []
+    actions(user).each do |item|
+      item.summary.scan(/@\w+/).each {|c| contexts << c}
+    end
+    contexts.uniq.sort
+  end
+
   def self.archive(user)
     where(:user_id => user, :archive => true).order(:sort).reverse_order
   end

@@ -6,13 +6,18 @@ class ItemsController < ApplicationController
   def index
     @item = Item.new
 
-    if params[:kind]
+    if params[:kind] && params[:kind] != 'all'
       opts = {:kind => params[:kind]}
     else
       opts = {}
     end
 
     @items = Item.active(current_user).where(opts)
+    if params[:context]
+      @items = @items.where("summary LIKE '%#{params[:context]}%'")
+    end
+
+    @contexts = Item.contexts(current_user)
 
     @count = {}
     [:inbox, :action, :project, :waiting, :maybe, :trivia, :calendar].each do |kind|
