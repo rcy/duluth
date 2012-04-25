@@ -5,22 +5,19 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @item = Item.new
-    @items = Item.active(current_user)
 
-    @projects = Item.projects(current_user)
-    @inbox = Item.inbox(current_user)
-    @waiting = Item.waiting(current_user)
-    @maybe = Item.maybe(current_user)
-    @trivia = Item.trivia(current_user)
-    @calendar = Item.calendar(current_user)
-    @archive = Item.archive(current_user)
+    if params[:kind]
+      opts = {:kind => params[:kind]}
+    else
+      opts = {}
+    end
 
-    # Split actions into contexts.  A context is marked by @context in the summary.
-    @actions = Item.actions(current_user)
-    # Item.actions(current_user).each do |action|
-    #   contexts = action.summary.scan(/@\w+/)
-    #   @actions << [action, contexts]
-    # end
+    @items = Item.active(current_user).where(opts)
+
+    @count = {}
+    [:inbox, :action, :project, :waiting, :maybe, :trivia, :calendar].each do |kind|
+      @count[kind] = Item.active(User.first).where(:kind => kind).count
+    end
 
     respond_to do |format|
       format.html # index.html.erb

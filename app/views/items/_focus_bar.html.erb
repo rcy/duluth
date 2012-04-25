@@ -1,11 +1,11 @@
 <div class="focus">
   Show:
-  <a data-focus="all" href="#all">ALL</a>
-  | <a data-focus="inbox" href="#inbox">inbox</a>
-  | <a data-focus="project" href="#project">projects</a>
-  | <a data-focus="action" href="#action">actions</a>
-  | <a data-focus="waiting" href="#waiting">waiting for</a>
-  | <a data-focus="maybe" href="#maybe">someday/maybe</a>
-  | <a data-focus="trivia" href="#trivia">notes</a>
-  | <a data-focus="calendar" href="#calendar">calendar</a>
+  <%= link_to "ALL", items_path %>
+  | <%= link_to "inbox", items_path(:kind => :inbox) %> (<%= @count[:inbox] %>)
+  | <%= link_to "projects", items_path(:kind => :project) %> (<%= @count[:project] %>)
+  | <%= link_to "actions", items_path(:kind => :action) %> (<%= @count[:action] %>)
+  | <%= link_to "waiting", items_path(:kind => :waiting) %> (<%= @count[:waiting] %>)
+  | <%= link_to "maybe", items_path(:kind => :maybe) %> (<%= @count[:maybe] %>)
+  | <%= link_to "notes", items_path(:kind => :trivia) %> (<%= @count[:trivia] %>)
+  | <%= link_to "calendar", items_path(:kind => :calendar) %> (<%= @count[:calendar] %>)
 </div>

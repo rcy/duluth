@@ -95,15 +95,15 @@ $(function() {
 
   });
 
-  $('.focus a').click(function(e) {
-    e.preventDefault();
-    var kind = $(this).data('focus');
-    if (kind === 'all') {
-      $('.item').show();
-    } else {
-      $('.item').hide();
-      $('.item.'+kind).show();
-    }
-  });
+  // $('.focus a').click(function(e) {
+  //   e.preventDefault();
+  //   var kind = $(this).data('focus');
+  //   if (kind === 'all') {
+  //     $('.item').show();
+  //   } else {
+  //     $('.item').hide();
+  //     $('.item.'+kind).show();
+  //   }
+  // });
 
 });
