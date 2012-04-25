@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
 
     @count = {}
     [:inbox, :action, :project, :waiting, :maybe, :trivia, :calendar].each do |kind|
-      @count[kind] = Item.active(User.first).where(:kind => kind).count
+      @count[kind] = Item.active(current_user).where(:kind => kind).count
     end
 
     respond_to do |format|
