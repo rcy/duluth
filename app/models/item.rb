@@ -47,8 +47,8 @@ class Item < ActiveRecord::Base
     active(user).where(:kind => 'maybe')
   end
 
-  def self.trivia(user)
-    active(user).where(:kind => 'trivia')
+  def self.note(user)
+    active(user).where(:kind => 'note')
   end
 
   def self.calendar(user)

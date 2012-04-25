@@ -11,7 +11,7 @@ module ItemsHelper
                 ["Action", "action"],
                 ["Someday/Maybe", "maybe"],
                 ["Waiting For", "waiting"],
-                ["Note", "trivia"],
+                ["Note", "note"],
                 ["Calendar", "calendar"]]],
               ["Other",
                [["Close", "do:archive"]]]]

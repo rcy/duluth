@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     @contexts = Item.contexts(current_user)
 
     @count = {}
-    [:inbox, :action, :project, :waiting, :maybe, :trivia, :calendar].each do |kind|
+    [:inbox, :action, :project, :waiting, :maybe, :note, :calendar].each do |kind|
       @count[kind] = Item.active(current_user).where(:kind => kind).count
     end
 
