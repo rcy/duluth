@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
+      format.text { render file: "items/items.txt.erb" }
     end
   end
 
