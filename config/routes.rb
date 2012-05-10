@@ -3,6 +3,9 @@ Duluth::Application.routes.draw do
 
   devise_for :users
 
+  match '_import' => 'items#import'
+  match '_export' => 'items#export'
+
   resources :items
 
   match ':kind(/:context)' => 'items#index', :as => :kind

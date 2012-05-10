@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   after_create :set_sort
 
   def set_sort
-    self.sort = self.id
+    self.sort ||= self.id
     save!
   end
 
@@ -17,6 +17,10 @@ class Item < ActiveRecord::Base
       item.summary.scan(/@\w+/).each {|c| contexts << c}
     end
     contexts.uniq.sort
+  end
+
+  def self.all(user)
+    where(:user_id => user)
   end
 
   def self.archive(user)
@@ -53,6 +57,16 @@ class Item < ActiveRecord::Base
 
   def self.calendar(user)
     active(user).where(:kind => 'calendar')
+  end
+
+  # TODO this go somewhere else
+  def self.csv items
+    CSV.generate do |csv|
+      csv << ['id', 'kind', 'created_at', 'updated_at', 'archive', 'user_id', 'sort', 'summary', 'body']
+      items.each do |i|
+        csv << [i.id, i.kind, i.created_at, i.updated_at, i.archive, i.user_id, i.sort, i.summary, i.body]
+      end
+    end
   end
 
 end

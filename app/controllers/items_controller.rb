@@ -28,7 +28,35 @@ class ItemsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @items }
       format.text { render file: "items/items.txt.erb" }
+      format.csv { send_data(Item.csv(@items),
+                             :type => 'text/csv',
+                             :filename => "#{current_user.nick}_#{params[:kind]}_#{params[:context]}.csv") }
     end
+  end
+
+  def import
+    if request.post?
+      tmp = params[:file_upload][:my_file].tempfile
+      user_id = current_user.id
+      CSV.foreach(tmp.path, :headers => true) do |row|
+        attrs = row.to_hash
+        existing = current_user.items.find_by_summary attrs['summary']
+
+        if existing.present?
+          existing.update_attributes attrs
+        else
+          current_user.items.create! attrs
+        end
+      end
+      redirect_to :items
+    end
+  end
+
+  def export
+    items = Item.all(current_user)
+    filename = "duluth_items_#{current_user.nick}.csv"
+
+    send_data(Item.csv(items), :type => 'text/csv', :filename => filename)
   end
 
   # GET /items/1
