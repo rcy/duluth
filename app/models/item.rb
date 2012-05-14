@@ -21,7 +21,7 @@ class Item < ActiveRecord::Base
     contexts.uniq.sort
   end
 
-  def self.all(user)
+  def self.every(user)
     where(:user_id => user)
   end
 

@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
   end
 
   def export
-    items = Item.all(current_user)
+    items = Item.every(current_user)
     filename = "duluth_items_#{current_user.nick}.csv"
 
     send_data(Item.csv(items), :type => 'text/csv', :filename => filename)
