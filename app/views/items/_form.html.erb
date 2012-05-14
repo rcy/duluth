@@ -1,20 +1,22 @@
-<%= form_for(@item) do |f| %>
+<div id="newform">
+  <%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @item.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <span class="field">
-    <%= f.text_field :summary, :class => 'focus' %>
+    <%= f.text_field :summary, :class => 'focus', :placeholder => 'Enter new item here' %>
   </span>
   <span class="actions">
-    <%= f.submit "Add to Inbox" %>
+    <%= f.submit "Submit" %>
   </span>
-<% end %>
+  <% end %>
+</div>
