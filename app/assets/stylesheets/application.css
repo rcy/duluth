@@ -17,3 +17,7 @@
 div.login-status {
     float: right;
 }
+
+div#newform input[type=text] {
+    width: 75%;
+}
