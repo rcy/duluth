@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  *= require fancybox
+ *= require 960gs/text.css
+ *= require 960gs/reset.css
+ *= require 960gs/960.css
  *= require jquery-ui/sunny/jquery-ui-1.8.18.custom.css
 */
 
@@ -19,5 +22,13 @@ div.login-status {
 }
 
 div#newform input[type=text] {
-    width: 75%;
+    width: 100%;
+}
+
+.notice {
+    background: #cfc;
+}
+.signed_in_as {
+    float: right;
+    font-size: 75%;
 }

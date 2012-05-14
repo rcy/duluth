@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Duluth</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Duluth</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 
-  <div class="login-status">
-    <% if user_signed_in? %>
-    Logged in as <%= current_user.nick %>
-    <%= link_to "signout", destroy_user_session_path, :method => :delete %>
-    <% end %>
-  </div>
+    <div class="container_12">
+      <div class="grid_8">
+        DULUTH
+      </div>
 
-  <%= yield %>
+      <div class="signed_in_as">
+        <% if user_signed_in? %>
+        <div>
+          Logged in as <%= current_user.nick %>
+          <%= link_to "signout", destroy_user_session_path, :method => :delete %>
+        </div>
+        <% end %>
+      </div>
 
-</body>
+      <div class="grid_12">
+        <div style="text-align: center">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+      </div>
+      <div class="clear"></div>
+
+      <div class="clear"></div>
+
+      <%= yield %>
+
+    </div>
+
+  </body>
 </html>
