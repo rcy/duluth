@@ -6,6 +6,8 @@ Duluth::Application.routes.draw do
   match '_import' => 'items#import'
   match '_export' => 'items#export'
 
+  match 'token' => 'items#token'
+
   resources :items
 
   match ':kind(/:context)' => 'items#index', :as => :kind
