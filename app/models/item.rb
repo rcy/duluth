@@ -7,8 +7,10 @@ class Item < ActiveRecord::Base
   after_create :set_sort
 
   def set_sort
-    self.sort ||= self.id
-    save!
+    unless sort.to_f > 0
+      self.sort = id
+      save!
+    end
   end
 
   def self.contexts(user)
