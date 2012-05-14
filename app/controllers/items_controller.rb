@@ -26,11 +26,26 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @items }
+      format.json { render json: @items, callback: params[:callback] }
       format.text { render file: "items/items.txt.erb" }
       format.csv { send_data(Item.csv(@items),
                              :type => 'text/csv',
                              :filename => "#{current_user.nick}_#{params[:kind]}_#{params[:context]}.csv") }
+    end
+  end
+
+  def token
+    if request.post?
+      current_user.reset_authentication_token!
+      redirect_to token_path
+      return
+    else
+      current_user.ensure_authentication_token!
+    end
+
+    @token = current_user.authentication_token
+    respond_to do |format|
+      format.html
     end
   end
 
@@ -94,7 +109,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to :items, notice: 'Item was successfully created.' }
+        format.html { redirect_to request.referer, notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }

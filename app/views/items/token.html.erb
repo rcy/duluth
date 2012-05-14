@@ -1,0 +1,5 @@
+<h1><%= @token %></h1>
+
+<%= form_tag(token_path, :method => "post") do %>
+  <%= submit_tag "generate new token" %>
+<% end %>
