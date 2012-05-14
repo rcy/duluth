@@ -1,12 +1,12 @@
 <div class="focus">
   <ul>
     <li><%= link_to "ALL", kind_path(:all) %></li>
-    <li><%= link_to "inbox", kind_path(:inbox) %> (<%= @count[:inbox] %>)</li>
-    <li><%= link_to "projects", kind_path(:project) %> (<%= @count[:project] %>)</li>
-    <li><%= link_to "actions", kind_path(:action) %> (<%= @count[:action] %>)</li>
-    <li><%= link_to "waiting", kind_path(:waiting) %> (<%= @count[:waiting] %>)</li>
-    <li><%= link_to "maybe", kind_path(:maybe) %> (<%= @count[:maybe] %>)</li>
-    <li><%= link_to "notes", kind_path(:note) %> (<%= @count[:note] %>)</li>
-    <li><%= link_to "calendar", kind_path(:calendar) %> (<%= @count[:calendar] %>)</li>
+    <li><%= link_to "inbox" + show_count(@count[:inbox]), kind_path(:inbox) %></li>
+    <li><%= link_to "projects" + show_count(@count[:project]), kind_path(:project) %></li>
+    <li><%= link_to "actions" + show_count(@count[:action]), kind_path(:action) %></li>
+    <li><%= link_to "waiting" + show_count(@count[:waiting]), kind_path(:waiting) %></li>
+    <li><%= link_to "maybe" + show_count(@count[:maybe]), kind_path(:maybe) %></li>
+    <li><%= link_to "notes" + show_count(@count[:note]), kind_path(:note) %></li>
+    <li><%= link_to "calendar" + show_count(@count[:calendar]), kind_path(:calendar) %></li>
   </ul>
 </div>

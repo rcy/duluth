@@ -18,4 +18,12 @@ module ItemsHelper
     end
     grouped_options_for_select(opts, item.kind)
   end
+
+  def show_count num
+    if num && num > 0
+      " (#{num.to_i})"
+    else
+      ""
+    end
+  end
 end
