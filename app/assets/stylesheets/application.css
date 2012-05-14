@@ -32,3 +32,7 @@ div#newform input[type=text] {
     float: right;
     font-size: 75%;
 }
+
+.focus a {
+    text-decoration: none;
+}
