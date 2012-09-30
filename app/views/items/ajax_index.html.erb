@@ -1,0 +1,12 @@
+<div class="grid_2">
+  <%= render 'ajax_focus_bar' %>
+</div>
+
+<div class="grid_10">
+  <div id="items">items here</div>
+</div>
+<div class="clear"></div>
+
+<script>
+  var bootstrapped_items = <%= @items.to_json.html_safe %>;
+</script>

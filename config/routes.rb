@@ -10,6 +10,7 @@ Duluth::Application.routes.draw do
 
   resources :items
 
+  match ':j' => 'items#ajax_index'
   match ':kind(/:context)' => 'items#index', :as => :kind
 
   # The priority is based upon order of creation:

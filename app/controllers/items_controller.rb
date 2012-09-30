@@ -1,6 +1,10 @@
 class ItemsController < ApplicationController
   before_filter :authenticate_user!
 
+  def ajax_index
+    @items = Item.active(current_user)
+  end
+
   # GET /items
   # GET /items.json
   def index

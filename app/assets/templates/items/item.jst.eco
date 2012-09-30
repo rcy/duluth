@@ -1,0 +1,18 @@
+<div class="item <%= @kind %> <%= @archive ? 'archive' : '' %>" data-id="<%= @id %>">
+  <span class="number">
+    <%= @id %>/<%= @sort %>
+  </span>
+
+  <span class="kind">
+    <select id="calendar" name="calendar"><optgroup label="Move to:"><option value="inbox">Inbox</option>
+        <option value="project">Project</option>
+        <option value="action">Action</option>
+        <option value="maybe">Someday/Maybe</option>
+        <option value="waiting">Waiting For</option>
+        <option value="note">Note</option>
+        <option value="calendar" selected="selected">Calendar</option></optgroup><optgroup label="Other"><option value="do:archive">Close</option></optgroup></select>
+  </span>
+
+  <span class="summary edit"><%= @summary %></span>
+
+</div>
